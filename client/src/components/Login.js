@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 
 import * as yup from "yup";
+import axios from "axios";
 
 import { StyledLogin } from "./Style";
-
-const loginSubmit = (event) => {
-  event.preventDefault();
-};
 
 let schema = yup.object().shape({
   username: yup.string().min("3", "Please enter a valid username").required(),
@@ -14,12 +11,12 @@ let schema = yup.object().shape({
 });
 
 function Login(props) {
-  const { submit } = props;
   const [inputValue, setInputValue] = useState({
     username: "",
     password: "",
   });
   const [formErrors, setFormErrors] = useState([]);
+  const [user, setUser] = useState();
 
   const changeHandler = (event) => {
     const { name, value } = event.target;
@@ -38,13 +35,25 @@ function Login(props) {
     });
   };
 
+  const submitHandler = (event) => {
+    event.preventDefault();
+    axios
+      .post("https://reqres.in/api/users", { inputValue })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <StyledLogin>
       <h1>Login Page</h1>
       {formErrors.username}
       <br />
       {formErrors.password}
-      <form onSubmit={loginSubmit}>
+      <form onSubmit={submitHandler}>
         <label htmlFor="username">Username</label>
         <input
           type="text"

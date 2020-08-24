@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 
 import { SignUpStyled } from "./Style";
 
@@ -8,7 +7,6 @@ const signupSubmit = (event) => {
 };
 
 function SignUp(props) {
-  const { submit } = props;
   return (
     <SignUpStyled>
       <h1>Sign Up Page</h1>
