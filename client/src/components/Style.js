@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const StyledLogin = styled.div`
-  font-family: serif;
   display: flex;
   flex-flow: column wrap;
   align-items: center;
@@ -40,7 +39,6 @@ const StyledLogin = styled.div`
 `;
 
 const SignUpStyled = styled.div`
-  font-family: serif;
   display: flex;
   flex-flow: column wrap;
   align-items: center;
