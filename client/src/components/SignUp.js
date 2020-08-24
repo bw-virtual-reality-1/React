@@ -65,7 +65,7 @@ function SignUp(props) {
       <br />
       {formErrors.password}
       <br />
-      <form onSubmit={signupSubmit}>
+      <form onSubmit={submitHandler}>
         <label htmlFor="firstName">First Name:</label>
         <input
           type="text"
