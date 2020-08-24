@@ -30,6 +30,13 @@ const SignUpStyled = styled.div`
       font-size: 1.2rem;
       margin-bottom: 0.6rem;
     }
+
+    button {
+      width: 20%;
+      height: 35px;
+      margin-top: 0.4rem;
+      font-size: 1.2rem;
+    }
   }
 `;
 
@@ -48,9 +55,12 @@ function SignUp(props) {
         <label htmlFor="email">Email</label>
         <input type="email" name="email" />
 
+        <label htmlFor="username">Username</label>
+        <input type="text" name="username" />
+
         <label htmlFor="password">Password</label>
         <input type="password" name="password" />
-        <button>Submit</button>
+        <button>Sign Up</button>
       </form>
     </SignUpStyled>
   );

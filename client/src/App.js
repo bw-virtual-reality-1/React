@@ -12,6 +12,10 @@ const signupSubmit = (event) => {
   event.preventDefault();
 };
 
+const loginSubmit = (event) => {
+  event.preventDefault();
+};
+
 function App() {
   return (
     <Router>
@@ -22,7 +26,7 @@ function App() {
           <Home />
         </Route>
         <Route exact path="/login">
-          <Login />
+          <Login submit={loginSubmit} />
         </Route>
         <Route exact path="/signup">
           <SignUp submit={signupSubmit} />
