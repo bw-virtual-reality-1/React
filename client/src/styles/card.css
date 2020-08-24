@@ -1,0 +1,39 @@
+
+.card-wrapper{
+    padding: 30px;
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+}
+a{
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}
+
+#name{
+
+}
+
+#description-p{
+
+}
+#img{
+    width: 200px;
+    height: 200px;
+}
+#donate-btn{
+    background-color: #629cd6;
+    width: 100px;
+    border: none;
+    margin: 10px;
+    border-radius: 20px;
+    padding: 1%;
+    outline: none;
+    color: white; 
+}
+
+h1{
+    color: white;
+    text-align: center;
+}
