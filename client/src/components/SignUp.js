@@ -43,14 +43,19 @@ function SignUp(props) {
   };
   const submitHandler = (event) => {
     event.preventDefault();
-    axios
-      .post("https://reqres.in/api/users", { inputValue })
-      .then((res) => {
-        console.log(res);
+    schema
+      .validate(inputValue)
+      .then((valid) => {
+        axios
+          .post("https://reqres.in/api/users", { inputValue })
+          .then((res) => {
+            console.log(res);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   };
   return (
     <SignUpStyled>
