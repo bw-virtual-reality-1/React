@@ -55,7 +55,9 @@ function SignUp(props) {
             console.log(err);
           });
       })
-      .catch((err) => {});
+      .catch((err) => {
+        setFormErrors({ formError: "All fields must be filled out correctly" });
+      });
   };
   return (
     <SignUpStyled>
@@ -70,6 +72,7 @@ function SignUp(props) {
       <br />
       {formErrors.password}
       <br />
+      {formErrors.formError}
       <form onSubmit={submitHandler}>
         <label htmlFor="firstName">First Name:</label>
         <input
