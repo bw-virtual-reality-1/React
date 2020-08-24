@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import { Container } from "reactstrap";
@@ -7,14 +7,6 @@ import Navbar from "./components/Navigation";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Home from "./components/Home";
-
-const signupSubmit = (event) => {
-  event.preventDefault();
-};
-
-const loginSubmit = (event) => {
-  event.preventDefault();
-};
 
 function App() {
   return (
@@ -26,10 +18,10 @@ function App() {
           <Home />
         </Route>
         <Route exact path="/login">
-          <Login submit={loginSubmit} />
+          <Login />
         </Route>
         <Route exact path="/signup">
-          <SignUp submit={signupSubmit} />
+          <SignUp />
         </Route>
       </Switch>
     </Router>

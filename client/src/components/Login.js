@@ -1,56 +1,65 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
 
-const StyledLogin = styled.div`
-  font-family: serif;
-  display: flex;
-  flex-flow: column wrap;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  h1 {
-    width: 100%;
-  }
+import * as yup from "yup";
 
-  form {
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: center;
-    width: 60%;
+import { StyledLogin } from "./Style";
 
-    label {
-      width: 100%;
-      font-weight: bold;
-      margin: 0.5rem 0;
-    }
+const loginSubmit = (event) => {
+  event.preventDefault();
+};
 
-    input {
-      width: 40%;
-      font-size: 1.2rem;
-      margin-bottom: 0.6rem;
-    }
-
-    button {
-      width: 20%;
-      height: 35px;
-      margin-top: 0.4rem;
-      font-size: 1.2rem;
-    }
-  }
-`;
+let schema = yup.object().shape({
+  username: yup.string().min("3", "Please enter a valid username").required(),
+  password: yup.string().min("6", "please enter a valid password").required(),
+});
 
 function Login(props) {
   const { submit } = props;
+  const [inputValue, setInputValue] = useState({
+    username: "",
+    password: "",
+  });
+  const [formErrors, setFormErrors] = useState([]);
+
+  const changeHandler = (event) => {
+    const { name, value } = event.target;
+    yup
+      .reach(schema, name)
+      .validate(value)
+      .then((msg) => {
+        setFormErrors({ ...formErrors, [name]: "" });
+      })
+      .catch((err) => {
+        setFormErrors({ ...formErrors, [name]: err.errors[0] });
+      });
+    setInputValue({
+      ...inputValue,
+      [name]: value,
+    });
+  };
+
   return (
     <StyledLogin>
       <h1>Login Page</h1>
-      <form onSubmit={submit}>
+      {formErrors.username}
+      <br />
+      {formErrors.password}
+      <form onSubmit={loginSubmit}>
         <label htmlFor="username">Username</label>
-        <input type="text" name="username" />
+        <input
+          type="text"
+          name="username"
+          onChange={changeHandler}
+          value={inputValue.name}
+        />
 
         <label htmlFor="password">Password</label>
-        <input type="password" name="password" />
+        <input
+          type="password"
+          name="password"
+          onChange={changeHandler}
+          value={inputValue.password}
+        />
         <button>Login</button>
       </form>
     </StyledLogin>
