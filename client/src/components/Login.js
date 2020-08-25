@@ -37,13 +37,25 @@ function Login(props) {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    axios
-      .post("https://reqres.in/api/users", { inputValue })
-      .then((res) => {
-        console.log(res);
+    schema
+      .validate(inputValue)
+      .then((valid) => {
+        axios
+          .post("https://reqres.in/api/users", { inputValue })
+          .then((res) => {
+            console.log(res);
+            setInputValue({
+              username: "",
+              password: "",
+            });
+            setFormErrors({});
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       })
       .catch((err) => {
-        console.log(err);
+        setFormErrors({ formError: "All fields must be filled out correctly" });
       });
   };
 
@@ -52,14 +64,15 @@ function Login(props) {
       <h1>Login Page</h1>
       {formErrors.username}
       <br />
-      {formErrors.password}
+      {formErrors.password} <br />
+      {formErrors.formError}
       <form onSubmit={submitHandler}>
         <label htmlFor="username">Username</label>
         <input
           type="text"
           name="username"
           onChange={changeHandler}
-          value={inputValue.name}
+          value={inputValue.username}
         />
 
         <label htmlFor="password">Password</label>

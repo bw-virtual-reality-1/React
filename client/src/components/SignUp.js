@@ -11,18 +11,16 @@ let schema = yup.object().shape({
   password: yup.string().min("6", "please enter a valid password").required(),
 });
 
-const signupSubmit = (event) => {
-  event.preventDefault();
+const defaultFormData = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  username: "",
+  password: "",
 };
 
 function SignUp(props) {
-  const [inputValue, setInputValue] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    username: "",
-    password: "",
-  });
+  const [inputValue, setInputValue] = useState(defaultFormData);
   const [formErrors, setFormErrors] = useState([]);
 
   const changeHandler = (event) => {
@@ -50,6 +48,7 @@ function SignUp(props) {
           .post("https://reqres.in/api/users", { inputValue })
           .then((res) => {
             console.log(res);
+            setFormErrors({});
           })
           .catch((err) => {
             console.log(err);
@@ -58,6 +57,8 @@ function SignUp(props) {
       .catch((err) => {
         setFormErrors({ formError: "All fields must be filled out correctly" });
       });
+
+    setInputValue(defaultFormData);
   };
   return (
     <StyledForm>
