@@ -1,19 +1,19 @@
-.add-wrap {
-  height: 50%;
-  color: white;
-  display: flex;
-  align-items: center;
-  border: 1px solid white;
-  margin: auto auto;
-  padding: 20%;
-  justify-content: space-between;
+#parent{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
 }
-div {
-  height: 100vh;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  justify-items: center;
+
+.add-wrap{
+    height: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    border: 1px solid white;
+    margin: auto auto;
+    padding: 20%;
+    justify-content: space-between;
 }
 
 h2 {
