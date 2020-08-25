@@ -2,7 +2,7 @@
 .card-wrapper{
     font-family: "Roboto", sans-serif;
     padding: 20px;
-    border: 1px solid white;
+    border: 1px solid #CA2044;
      margin: 20px auto;
     width: 30%;
 }
@@ -27,7 +27,7 @@ line-height: 50px;
     height: 200px;
 }
 #donate-btn{
-    background-color: #629cd6;
+    background-color: #CA2044;
     width: 100px;
     border: none;
     margin: 10px;

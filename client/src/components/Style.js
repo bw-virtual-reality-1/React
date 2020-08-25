@@ -32,7 +32,7 @@ const StyledForm = styled.div`
     }
 
     button {
-      background-color: #629cd6;
+      background-color: #CA2044;
       width: 100px;
       border: none;
       margin: 10px;
