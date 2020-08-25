@@ -17,6 +17,7 @@ const defaultFormData = {
   email: "",
   username: "",
   password: "",
+  role: 1,
 };
 
 function SignUp(props) {
@@ -41,11 +42,15 @@ function SignUp(props) {
   };
   const submitHandler = (event) => {
     event.preventDefault();
+    console.log(inputValue);
     schema
       .validate(inputValue)
       .then((valid) => {
         axios
-          .post("https://reqres.in/api/users", { inputValue })
+          .post(
+            "https://virtual-reality-fundraiser.herokuapp.com/api/register",
+            { inputValue }
+          )
           .then((res) => {
             console.log(res);
             setFormErrors({});
