@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-
+import { useHistory } from "react-router-dom";
 import * as yup from "yup";
-import axios from "axios";
+
 
 import { StyledForm } from "./Style";
 
@@ -12,7 +12,7 @@ let schema = yup.object().shape({
 
 function Login(props) {
   const { setUser } = props;
-
+  const history = useHistory();
   const [inputValue, setInputValue] = useState({
     username: "",
     password: "",
@@ -50,7 +50,11 @@ function Login(props) {
           },
           body: JSON.stringify(inputValue)
         }).then(res => { return res.json() })
-          .then(data => setUser({ token: data.token, loggedin: true }))
+          .then(data => {
+            console.log(data)
+            setUser({ token: data.token, loggedin: true })
+            history.push('/dashboard')
+          })
 
       })
       .catch((err) => {

@@ -34,7 +34,7 @@ function App() {
     getProjectList();
   }, [location]);
 
-  console.log(projects);
+  //console.log(projects);
   return (
     <>
       <Navbar user={user} />
@@ -44,10 +44,10 @@ function App() {
       </Route>
 
       <Route exact path="/login">
-        <Login setUser={setUser} />
+        <Login setUser={setUser} user={user} />
       </Route>
       <Route exact path="/signup">
-        <SignUp />
+        <SignUp setUser={setUser} user={user} />
       </Route>
       <Route exact path="/dashboard">
         <Dashboard projects={projects} />

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as yup from "yup";
-import axios from "axios";
+import { useHistory } from "react-router-dom";
 import { StyledForm } from "./Style";
 
 let schema = yup.object().shape({
@@ -10,6 +10,8 @@ let schema = yup.object().shape({
   username: yup.string().min("3", "Please enter a valid username").required(),
   password: yup.string().min("6", "please enter a valid password").required(),
 });
+
+
 
 const defaultFormData = {
   firstName: "",
@@ -23,7 +25,8 @@ const defaultFormData = {
 function SignUp(props) {
   const [inputValue, setInputValue] = useState(defaultFormData);
   const [formErrors, setFormErrors] = useState([]);
-
+  const { setUser } = props
+  const history = useHistory();
   const changeHandler = (event) => {
     const { name, value } = event.target;
     yup
@@ -45,25 +48,6 @@ function SignUp(props) {
     schema
       .validate(inputValue)
       .then((valid) => {
-        // axios
-        //   .post(
-        //     "https://virtual-reality-fundraiser.herokuapp.com/api/register",
-        //     {
-        //       firstName: inputValue.firstName,
-        //       lastName: inputValue.lastName,
-        //       email: inputValue.email,
-        //       username: inputValue.username,
-        //       password: inputValue.password,
-        //       role: 1,
-        //     }
-        //   )
-        //   .then((res) => {
-        //     console.log(res);
-        //     setFormErrors({});
-        //   })
-        //   .catch((err) => {
-        //     console.log(err);
-        //   });
 
         fetch('https://virtual-reality-fundraiser.herokuapp.com/api/register', {
           method: "POST",
@@ -77,7 +61,10 @@ function SignUp(props) {
           .then(data => {
             console.log(data)
             setFormErrors({});
+
             setInputValue(defaultFormData)
+            setUser({ loggedin: true })
+            history.push('/dashboard')
           })
           .catch(err => console.log(err))
       })
@@ -143,6 +130,7 @@ function SignUp(props) {
         />
         <button>Sign Up</button>
       </form>
+
     </StyledForm>
   );
 }
