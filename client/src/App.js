@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import axiosWithAuth from './utils/axiosWithAuth'
 
 import Dashboard from "./components/ProjectDashboard";
 import AddProject from "./components/AddProject";
@@ -22,8 +23,8 @@ function App() {
   const [user, setUser] = useState({ loggedin: false });
 
   const getProjectList = () => {
-    axios
-      .get("https://reqres.in/api/users")
+    axiosWithAuth()
+      .get("https://virtual-reality-fundraiser.herokuapp.com/api/auth/funder")
       .then((res) => {
         setProjectList(res.data.data);
       })
