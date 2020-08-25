@@ -49,7 +49,14 @@ function SignUp(props) {
         axios
           .post(
             "https://virtual-reality-fundraiser.herokuapp.com/api/register",
-            { inputValue }
+            {
+              firstName: inputValue.firstName,
+              lastName: inputValue.lastName,
+              email: inputValue.email,
+              username: inputValue.username,
+              password: inputValue.password,
+              role: 1,
+            }
           )
           .then((res) => {
             console.log(res);
