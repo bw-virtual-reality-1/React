@@ -2,12 +2,12 @@ import React from 'react'
 import ProjectCard from './ProjectCard'
 import {Link} from 'react-router-dom'
 import { Container, Row, Col } from "reactstrap";
-
+import '../styles/dashboard.css'
 
 function Dashboard({projects}){
 return(
     <div>
-          <h1> Projects</h1>
+    
     <div>
       
         <Container>

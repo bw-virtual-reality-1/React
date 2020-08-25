@@ -1,3 +1,10 @@
+#parent{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
 .add-wrap{
     height: 50%;
     color: white;
@@ -7,12 +14,6 @@
     margin: auto auto;
     padding: 20%;
     justify-content: space-between;
-}
-div{
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    justify-items: center;
 }
 
 h2{
