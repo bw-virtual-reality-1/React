@@ -41,26 +41,17 @@ function Login(props) {
     schema
       .validate(inputValue)
       .then((valid) => {
-        axios
-          .post(
-            "https://virtual-reality-fundraiser.herokuapp.com/api/login",
-            { inputValue }
-          )
 
-          .then((res) => {
-            console.log(res);
 
-            setInputValue({
-              username: "",
-              password: "",
-            });
-            setFormErrors({});
-            setUser({ loggedin: true });
-          })
-          .catch((err) => {
-            console.log(err);
-            console.log(err.message)
-          });
+        fetch('https://virtual-reality-fundraiser.herokuapp.com/api/login', {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(inputValue)
+        }).then(res => { return res.json() })
+          .then(data => setUser({ token: data.token, loggedin: true }))
+
       })
       .catch((err) => {
         setFormErrors({ formError: "All fields must be filled out correctly" });
