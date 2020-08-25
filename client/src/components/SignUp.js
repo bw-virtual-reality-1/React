@@ -42,7 +42,6 @@ function SignUp(props) {
   };
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log(inputValue);
     schema
       .validate(inputValue)
       .then((valid) => {
@@ -72,7 +71,15 @@ function SignUp(props) {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify(inputValue)
-        }).then(res => console.log(res))
+        }).then(res => {
+          return res.json()
+        })
+          .then(data => {
+            console.log(data)
+            setFormErrors({});
+            setInputValue(defaultFormData)
+          })
+          .catch(err => console.log(err))
       })
       .catch((err) => {
         setFormErrors({ formError: "All fields must be filled out correctly" });
