@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Open+Sans+Condensed:wght@300&display=swap');
+
+
+body{
+    background-color: #0e3155;
+}
+
+.role-wrap{
+  
+    height: 100vh;
+    color: white;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  
+}
+
+.main-btn{
+    background-color:  #264f77;
+    width: 300px;
+    border: none;
+    margin: 10px;
+    border-radius: 20px;
+    padding: 1%;
+    outline: none;
+    color: white;
+    padding: 3%;
+}
+
+.payment{
+    color: white;
+    font-size: 40px;
+    text-align: center;
+}
+
