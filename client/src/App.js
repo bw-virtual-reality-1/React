@@ -1,12 +1,12 @@
-import React, {useState,useEffect} from 'react';
-import axios from 'axios'
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-import Dashboard from './components/ProjectDashboard'
-import AddProject from './components/AddProject'
-import Payment from './components/Payment'
-import ProjectCard from './components/ProjectCard'
+import Dashboard from "./components/ProjectDashboard";
+import AddProject from "./components/AddProject";
+import Payment from "./components/Payment";
+import ProjectCard from "./components/ProjectCard";
 
-import {Route, useHistory } from "react-router-dom";
+import { Route, useHistory } from "react-router-dom";
 
 import "./App.css";
 
@@ -15,61 +15,52 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Home from "./components/Home";
 
-
 function App() {
-const [projects, setProjectList] = useState([]);
-  const {location} = useHistory()
+  const [projects, setProjectList] = useState([]);
+  const { location } = useHistory();
 
   const getProjectList = () => {
     axios
       .get("https://reqres.in/api/users")
-      .then(res => {
-        
-         setProjectList(res.data.data) 
-    })
-      .catch(err => console.log(err));
+      .then((res) => {
+        setProjectList(res.data.data);
+      })
+      .catch((err) => console.log(err));
   };
-
-
 
   useEffect(() => {
     getProjectList();
   }, [location]);
 
-  
-  console.log(projects)
+  console.log(projects);
   return (
-   <>
-       <Navbar />
+    <>
+      <Navbar />
 
-       <Route exact path="/">
-          <Home />
-        </Route>
+      <Route exact path="/">
+        <Home />
+      </Route>
 
-  <Route exact path="/login">
-          <Login />
-
-        </Route>
-        <Route exact path="/signup">
-          <SignUp />
-          </Route>
-  <Route exact path='/dashboard'>
-    <Dashboard projects={projects}/>
-  </Route>
-  <Route exact path='/add-project'>
-    <AddProject/>
-  </Route>
-  <Route exact path ='/payment'>
-    <Payment/>
-  </Route>
-  <Route exact path='/dashboard/:id'>
-    <ProjectCard/>
-  </Route>
-    
-</>
+      <Route exact path="/login">
+        <Login />
+      </Route>
+      <Route exact path="/signup">
+        <SignUp />
+      </Route>
+      <Route exact path="/dashboard">
+        <Dashboard projects={projects} />
+      </Route>
+      <Route exact path="/add-project">
+        <AddProject />
+      </Route>
+      <Route exact path="/payment">
+        <Payment />
+      </Route>
+      <Route exact path="/dashboard/:id">
+        <ProjectCard />
+      </Route>
+    </>
   );
 }
 
-
 export default App;
-

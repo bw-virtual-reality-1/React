@@ -1,10 +1,12 @@
 import React from "react";
+import styled from "styled-components";
 
 import { Link } from "react-router-dom";
+import { Nav } from "./Style";
 
 const Navigation = (props) => {
   return (
-    <nav>
+    <Nav>
       <Link to="/" className="nav-link">
         Home
       </Link>
@@ -16,7 +18,7 @@ const Navigation = (props) => {
       <Link to="/signup" className="nav-link">
         Sign Up
       </Link>
-    </nav>
+    </Nav>
   );
 };
 export default Navigation;

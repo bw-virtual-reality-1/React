@@ -15,7 +15,7 @@ const StyledForm = styled.div`
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
-    width: 60%;
+    width: 100%;
 
     label {
       width: 100%;
@@ -24,13 +24,13 @@ const StyledForm = styled.div`
     }
 
     input {
-      width: 40%;
+      width: 80%;
       font-size: 1.2rem;
       margin-bottom: 0.6rem;
     }
 
     button {
-      width: 20%;
+      width: 40%;
       height: 35px;
       margin-top: 0.4rem;
       font-size: 1.2rem;
@@ -38,4 +38,17 @@ const StyledForm = styled.div`
   }
 `;
 
-export { StyledForm };
+const Nav = styled.nav`
+  display: flex;
+  flex-flow: row nowrap;
+  height: 75px;
+  width: 100%;
+`;
+
+const StyledHome = styled.section`
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+`;
+
+export { StyledForm, Nav, StyledHome };
