@@ -42,7 +42,11 @@ function Login(props) {
       .validate(inputValue)
       .then((valid) => {
         axios
-          .post("https://reqres.in/api/users", { inputValue })
+          .post(
+            "https://virtual-reality-fundraiser.herokuapp.com/api/login",
+            { inputValue }
+          )
+
           .then((res) => {
             console.log(res);
 
@@ -55,6 +59,7 @@ function Login(props) {
           })
           .catch((err) => {
             console.log(err);
+            console.log(err.message)
           });
       })
       .catch((err) => {

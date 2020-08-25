@@ -9,6 +9,7 @@ const StyledForm = styled.div`
   h1 {
     width: 100%;
   }
+  color: white;
 
   form {
     display: flex;
@@ -24,9 +25,10 @@ const StyledForm = styled.div`
     }
 
     input {
-      width: 60%;
+      width: 50%;
       font-size: 1.2rem;
       margin-bottom: 0.6rem;
+      padding: 0.7rem;
     }
 
     button {
@@ -37,7 +39,7 @@ const StyledForm = styled.div`
       border-radius: 20px;
       padding: 1%;
       outline: none;
-      color: white; 
+      color: white;
       font-family: "Orbitron", sans-serif;
     }
   }
