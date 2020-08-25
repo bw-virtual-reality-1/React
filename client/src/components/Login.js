@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import * as yup from "yup";
 import axios from "axios";
 
-import { StyledLogin } from "./Style";
+import { StyledForm } from "./Style";
 
 let schema = yup.object().shape({
   username: yup.string().min("3", "Please enter a valid username").required(),
@@ -48,7 +48,7 @@ function Login(props) {
   };
 
   return (
-    <StyledLogin>
+    <StyledForm>
       <h1>Login Page</h1>
       {formErrors.username}
       <br />
@@ -71,7 +71,7 @@ function Login(props) {
         />
         <button>Login</button>
       </form>
-    </StyledLogin>
+    </StyledForm>
   );
 }
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import * as yup from "yup";
 import axios from "axios";
-import { SignUpStyled } from "./Style";
+import { StyledForm } from "./Style";
 
 let schema = yup.object().shape({
   firstName: yup.string().min("2", "Please enter your first name").required(),
@@ -60,7 +60,7 @@ function SignUp(props) {
       });
   };
   return (
-    <SignUpStyled>
+    <StyledForm>
       <h1>Sign Up Page</h1>
       {formErrors.firstName}
       <br />
@@ -115,7 +115,7 @@ function SignUp(props) {
         />
         <button>Sign Up</button>
       </form>
-    </SignUpStyled>
+    </StyledForm>
   );
 }
 
