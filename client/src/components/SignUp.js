@@ -26,7 +26,7 @@ function SignUp(props) {
   const [inputValue, setInputValue] = useState(defaultFormData);
   const [formErrors, setFormErrors] = useState([]);
   const { setUser } = props
-  let history = useHistory();
+  const history = useHistory();
   const changeHandler = (event) => {
     const { name, value } = event.target;
     yup
@@ -48,25 +48,6 @@ function SignUp(props) {
     schema
       .validate(inputValue)
       .then((valid) => {
-        // axios
-        //   .post(
-        //     "https://virtual-reality-fundraiser.herokuapp.com/api/register",
-        //     {
-        //       firstName: inputValue.firstName,
-        //       lastName: inputValue.lastName,
-        //       email: inputValue.email,
-        //       username: inputValue.username,
-        //       password: inputValue.password,
-        //       role: 1,
-        //     }
-        //   )
-        //   .then((res) => {
-        //     console.log(res);
-        //     setFormErrors({});
-        //   })
-        //   .catch((err) => {
-        //     console.log(err);
-        //   });
 
         fetch('https://virtual-reality-fundraiser.herokuapp.com/api/register', {
           method: "POST",

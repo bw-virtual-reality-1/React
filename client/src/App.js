@@ -34,7 +34,7 @@ function App() {
     getProjectList();
   }, [location]);
 
-  console.log(projects);
+  //console.log(projects);
   return (
     <>
       <Navbar user={user} />
