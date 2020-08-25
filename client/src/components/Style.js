@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 const StyledForm = styled.div`
   display: flex;
@@ -15,7 +15,7 @@ const StyledForm = styled.div`
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 60%;
 
     label {
       width: 100%;
@@ -24,13 +24,13 @@ const StyledForm = styled.div`
     }
 
     input {
-      width: 80%;
+      width: 60%;
       font-size: 1.2rem;
       margin-bottom: 0.6rem;
     }
 
     button {
-      width: 40%;
+      width: 20%;
       height: 35px;
       margin-top: 0.4rem;
       font-size: 1.2rem;
@@ -41,8 +41,16 @@ const StyledForm = styled.div`
 const Nav = styled.nav`
   display: flex;
   flex-flow: row nowrap;
-  height: 75px;
+  height: 50px;
   width: 100%;
+  background-color: black;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+
+  a {
+    margin: 0 0.8rem;
+  }
 `;
 
 const StyledHome = styled.section`

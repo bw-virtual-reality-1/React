@@ -18,6 +18,7 @@ import Home from "./components/Home";
 function App() {
   const [projects, setProjectList] = useState([]);
   const { location } = useHistory();
+  const [user, setUser] = useState({ loggedin: false });
 
   const getProjectList = () => {
     axios
@@ -35,14 +36,14 @@ function App() {
   console.log(projects);
   return (
     <>
-      <Navbar />
+      <Navbar user={user} />
 
       <Route exact path="/">
         <Home />
       </Route>
 
       <Route exact path="/login">
-        <Login />
+        <Login setUser={setUser} />
       </Route>
       <Route exact path="/signup">
         <SignUp />

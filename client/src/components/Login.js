@@ -11,12 +11,13 @@ let schema = yup.object().shape({
 });
 
 function Login(props) {
+  const { setUser } = props;
+
   const [inputValue, setInputValue] = useState({
     username: "",
     password: "",
   });
   const [formErrors, setFormErrors] = useState([]);
-  const [user, setUser] = useState();
 
   const changeHandler = (event) => {
     const { name, value } = event.target;
@@ -44,11 +45,13 @@ function Login(props) {
           .post("https://reqres.in/api/users", { inputValue })
           .then((res) => {
             console.log(res);
+
             setInputValue({
               username: "",
               password: "",
             });
             setFormErrors({});
+            setUser({ loggedin: true });
           })
           .catch((err) => {
             console.log(err);
