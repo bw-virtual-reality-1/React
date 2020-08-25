@@ -14,7 +14,7 @@ return(
             <Row>
         {
          projects.map(item =>(
-            <Col>
+            <Col xs="3">
            <Link key={item.id} to={`/dashboard/${item.id}`} >
                <ProjectCard projects={item}/>
            </Link>

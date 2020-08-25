@@ -1,4 +1,10 @@
 .container{
+ display: flex;
+ flex-flow: row wrap;
+}
+
+.row{
     display: flex;
+    flex-flow: row wrap;
 
 }
