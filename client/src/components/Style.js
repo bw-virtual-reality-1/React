@@ -30,10 +30,15 @@ const StyledForm = styled.div`
     }
 
     button {
-      width: 20%;
-      height: 35px;
-      margin-top: 0.4rem;
-      font-size: 1.2rem;
+      background-color: #629cd6;
+      width: 100px;
+      border: none;
+      margin: 10px;
+      border-radius: 20px;
+      padding: 1%;
+      outline: none;
+      color: white; 
+      font-family: "Orbitron", sans-serif;
     }
   }
 `;
