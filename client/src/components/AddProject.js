@@ -43,7 +43,7 @@ const initFormValues = {
     }
 
     return(
-        <div>
+        <div id="parent">
         <div className="add-wrap">
             <h2>Add <br/>A Project</h2>
             <form onSubmit={onSubmit}>

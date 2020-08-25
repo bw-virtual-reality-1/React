@@ -15,6 +15,7 @@ export default function Card({projects}){
                 <p> Learning curve business model canvas incubator
                      creative value proposition entrepreneur A/B testing startup marketing termsheet. Twitter leverage stealth success network effects pivot virality
                     </p>
+                    
                <Link to='/payment'> <button id="donate-btn">Donate</button> </Link>
             </div>
         
