@@ -6,10 +6,8 @@
 }
 
 .add-wrap{
-    height: 50%;
     color: white;
     display: flex;
-    align-items: center;
     border: 1px solid white;
     margin: auto auto;
     padding: 20%;
