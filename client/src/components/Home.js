@@ -1,12 +1,13 @@
-import React from 'react'
+import React from "react";
 
+import { StyledHome } from "./Style";
 
 function Home() {
   return (
-    <div>
+    <StyledHome>
       <h1>VR funding platform</h1>
-    </div>
-  )
+    </StyledHome>
+  );
 }
 
-export default Home
+export default Home;
