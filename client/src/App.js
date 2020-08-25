@@ -14,6 +14,7 @@ import Navbar from "./components/Navigation";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Home from "./components/Home";
+import PrivateRoute from './utils/PrivateRoute'
 
 
 function App() {
@@ -53,9 +54,9 @@ const [projects, setProjectList] = useState([]);
         <Route exact path="/signup">
           <SignUp />
           </Route>
-  <Route exact path='/dashboard'>
+  <PrivateRoute exact path='/dashboard'>
     <Dashboard projects={projects}/>
-  </Route>
+  </PrivateRoute>
   <Route exact path='/add-project'>
     <AddProject/>
   </Route>
