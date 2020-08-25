@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 const StyledForm = styled.div`
   display: flex;
@@ -24,7 +24,7 @@ const StyledForm = styled.div`
     }
 
     input {
-      width: 40%;
+      width: 60%;
       font-size: 1.2rem;
       margin-bottom: 0.6rem;
     }
@@ -38,4 +38,25 @@ const StyledForm = styled.div`
   }
 `;
 
-export { StyledForm };
+const Nav = styled.nav`
+  display: flex;
+  flex-flow: row nowrap;
+  height: 50px;
+  width: 100%;
+  background-color: black;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+
+  a {
+    margin: 0 0.8rem;
+  }
+`;
+
+const StyledHome = styled.section`
+  display: flex;
+  flex-flow: column wrap;
+  width: 100%;
+`;
+
+export { StyledForm, Nav, StyledHome };
