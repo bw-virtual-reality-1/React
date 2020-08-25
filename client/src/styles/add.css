@@ -23,18 +23,33 @@ label {
   font-size: 25px;
 }
 
-input {
-  margin: 10px 0;
-  background-color: #264f77;
-  border: none;
-  border-radius: 10px;
-  width: 200px;
+
+input{
+    margin: 10px 0;
+    background-color: #073b70;
+    border: none;
+    border-radius: 10px;
+    width: 200px;
+    
+
+
 }
 #description {
   height: 120px;
   width: 300px;
 }
 #submit {
+    background-color: #CA2044;
+    font-size: 20px;
+        width: 90%;
+    border: none;
+    margin: 10px;
+    border-radius: 20px;
+    padding: 1%;
+    outline: none;
+    color: white;
+    
+
   background-color: #264f77;
   font-size: 20px;
   width: 90%;
@@ -44,4 +59,5 @@ input {
   padding: 1%;
   outline: none;
   color: white;
+
 }
