@@ -1,15 +1,19 @@
 import React, {useState,useEffect} from 'react';
 import axios from 'axios'
-import {useHistory} from 'react-router-dom'
 
-
-import Role from './components/RolePage'
 import Dashboard from './components/ProjectDashboard'
 import AddProject from './components/AddProject'
 import Payment from './components/Payment'
 import ProjectCard from './components/ProjectCard'
 
-import {Route} from 'react-router-dom'
+import {Route, useHistory } from "react-router-dom";
+
+import "./App.css";
+
+import Navbar from "./components/Navigation";
+import Login from "./components/Login";
+import SignUp from "./components/SignUp";
+import Home from "./components/Home";
 
 
 function App() {
@@ -35,10 +39,20 @@ const [projects, setProjectList] = useState([]);
   
   console.log(projects)
   return (
-    <div >
-<Route exact path='/main'>
-  <Role/>
-  </Route>
+   <>
+       <Navbar />
+
+       <Route exact path="/">
+          <Home />
+        </Route>
+
+  <Route exact path="/login">
+          <Login />
+
+        </Route>
+        <Route exact path="/signup">
+          <SignUp />
+          </Route>
   <Route exact path='/dashboard'>
     <Dashboard projects={projects}/>
   </Route>
@@ -52,9 +66,10 @@ const [projects, setProjectList] = useState([]);
     <ProjectCard/>
   </Route>
     
-    </div>
+</>
   );
 }
+
 
 export default App;
 
