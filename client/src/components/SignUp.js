@@ -9,6 +9,7 @@ let schema = yup.object().shape({
   email: yup.string().email().required("Please enter a valid email"),
   username: yup.string().min("3", "Please enter a valid username").required(),
   password: yup.string().min("6", "please enter a valid password").required(),
+  role: yup.string().required(),
 });
 
 
@@ -19,7 +20,7 @@ const defaultFormData = {
   email: "",
   username: "",
   password: "",
-  role: 1,
+  role: "",
 };
 
 function SignUp(props) {
@@ -45,6 +46,7 @@ function SignUp(props) {
   };
   const submitHandler = (event) => {
     event.preventDefault();
+    console.log(inputValue)
     schema
       .validate(inputValue)
       .then((valid) => {
@@ -64,7 +66,7 @@ function SignUp(props) {
 
             setInputValue(defaultFormData)
             setUser({ loggedin: true })
-            history.push('/dashboard')
+            //history.push('/dashboard')
           })
           .catch(err => console.log(err))
       })
@@ -128,6 +130,12 @@ function SignUp(props) {
           onChange={changeHandler}
           value={inputValue.password}
         />
+        <label htmlFor="role">Account Type</label>
+        <select className='select' name="role" onChange={changeHandler} value={inputValue.role}>
+          <option value="">--- Select Account Type ---</option>
+          <option value="1">Get Funds</option>
+          <option value="2">Give Funds</option>
+        </select>
         <button>Sign Up</button>
       </form>
 
