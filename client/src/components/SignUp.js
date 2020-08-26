@@ -130,6 +130,7 @@ function SignUp(props) {
           onChange={changeHandler}
           value={inputValue.password}
         />
+        <label htmlFor="role">Account Type</label>
         <select className='select' name="role" onChange={changeHandler} value={inputValue.role}>
           <option value="">--- Select Account Type ---</option>
           <option value="1">Get Funds</option>
