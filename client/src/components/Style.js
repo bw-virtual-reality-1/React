@@ -19,16 +19,17 @@ const StyledForm = styled.div`
     width: 60%;
 
     label {
-      width: 100%;
+      width: 50%;
       font-weight: bold;
       margin: 0.5rem 0;
     }
 
     input {
-      width: 50%;
+      width: 30%;
       font-size: 1.2rem;
       margin-bottom: 0.6rem;
       padding: 0.7rem;
+      color: white;
     }
 
     button {
@@ -41,6 +42,12 @@ const StyledForm = styled.div`
       outline: none;
       color: white;
       font-family: "Orbitron", sans-serif;
+    }
+    .select{
+      font-size: 1rem;
+      margin-top: 0.6rem;
+      background-color: #073b70;
+      color: white;
     }
   }
 `;
