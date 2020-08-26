@@ -66,9 +66,9 @@ function SignUp(props) {
 
             setInputValue(defaultFormData)
             setUser({ loggedin: true })
-            //history.push('/dashboard')
+            history.push('/dashboard')
           })
-          .catch(err => console.log(err))
+          .catch(err => setFormErrors({ statusErr: "there was an issue with your request" }))
       })
       .catch((err) => {
         setFormErrors({ formError: "All fields must be filled out correctly" });
@@ -89,7 +89,8 @@ function SignUp(props) {
       <br />
       {formErrors.password}
       <br />
-      {formErrors.formError}
+      {formErrors.formError} <br />
+      {formErrors.statusErr}
       <form onSubmit={submitHandler}>
         <label htmlFor="firstName">First Name:</label>
         <input

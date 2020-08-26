@@ -10,6 +10,8 @@ let schema = yup.object().shape({
   password: yup.string().min("6", "please enter a valid password").required(),
 });
 
+let status = null;
+
 function Login(props) {
   const { setUser } = props;
   const history = useHistory();
@@ -50,17 +52,26 @@ function Login(props) {
           },
           body: JSON.stringify(inputValue)
         }).then(res => {
-          if (res.status != 401) {
+          status = res.status
+          if (status != 401) {
             return res.json()
           } else {
             //// figure out how to work around this nonsense
+            setUser({ token: '', loggedin: false })
           }
 
         })
           .then(data => {
-            console.log(data)
-            setUser({ token: data.token, loggedin: true })
-            history.push('/dashboard')
+            if (status != 401) {
+              console.log(data)
+              setUser({ token: data.token, loggedin: true })
+              history.push('/dashboard')
+            } else {
+              setUser({ token: '', loggedin: false })
+            }
+          })
+          .catch(err => {
+            setFormErrors({ statusErr: "There was an problem with your request" })
           })
 
       })
@@ -75,7 +86,8 @@ function Login(props) {
       {formErrors.username}
       <br />
       {formErrors.password} <br />
-      {formErrors.formError}
+      {formErrors.formError} <br />
+      {formErrors.statusErr}
       <form onSubmit={submitHandler}>
         <label htmlFor="username">Username</label>
         <input
