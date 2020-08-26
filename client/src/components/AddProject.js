@@ -10,8 +10,8 @@ import axiosWithAuth from '../utils/axiosWithAuth'
 library.add(faTrash)
 
 const initFormValues = {
-    title:'',
-    description:'',
+    name:'',
+    job:'',
     id: Date.now()
 }
 
@@ -32,7 +32,7 @@ const initFormValues = {
         e.preventDefault();
         
         axiosWithAuth() 
-        .post('/dashboard', addProject)
+        .post('https://reqres.in/api/users?page=2', addProject)
         .then(res => {
             console.log(res.data)
             setProject(res.data)
@@ -53,16 +53,16 @@ const initFormValues = {
                 <br/>
             <input
             type="text"
-            name="title"
-            value={addProject.title}
+            name="name"
+            value={addProject.name}
             onChange={onChange}
             /> <br/>
             <label htmlFor="description"> Description</label><br/>
             <input
             type='text'
-            name="description"
+            name="job"
             id="description"
-            value={addProject.description}
+            value={addProject.job}
             onChange={onChange}
             /> <br/>
 

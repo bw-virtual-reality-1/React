@@ -12,10 +12,10 @@ function Dashboard(){
 
  function getProjects() { 
  axiosWithAuth()
-.get("https://reqres.in/api/users")
+.get("https://virtual-reality-fundraiser.herokuapp.com/api/projects")
 .then(res =>{ 
     console.log(res) 
-    setProjects(res.data.data)
+    setProjects(res.data.info)
 })
 .catch(err=> console.log(err))
  }
@@ -34,7 +34,7 @@ return(
             <Row>
         {
          projects.map(item =>(
-            <Col xs="3">
+            <Col >
            <Link key={item.id} to={`/dashboard/${item.id}`} >
                <ProjectCard projects={item}/>
            </Link>

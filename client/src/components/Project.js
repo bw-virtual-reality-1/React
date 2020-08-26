@@ -25,7 +25,7 @@ function Project(){
     const onDelete = e => {
         e.preventDefault()
         axios
-        .get(`https://reqres.in/api/users/${params.id}`)
+        .delete(`https://reqres.in/api/users/${params.id}`)
         .then(res =>{
             push('/dashboard')
             setProject(res.data)

@@ -1,10 +1,10 @@
 import React, { useState} from "react";
+import {BrowserRouter as Router} from 'react-router-dom'
 
 
 import Dashboard from "./components/ProjectDashboard";
 import AddProject from "./components/AddProject";
 import Payment from "./components/Payment";
-import ProjectCard from "./components/ProjectCard";
 import Project from './components/Project'
 
 import { Route} from "react-router-dom";
@@ -17,12 +17,15 @@ import SignUp from "./components/SignUp";
 import Home from "./components/Home";
 import PrivateRoute from './utils/PrivateRoute'
 import Update from './components/updateProject'
+
+
 function App() {
   const [user, setUser] = useState({ loggedin: false });
 
  
   return (
     <>
+    <Router>
       <Navbar user={user} />
 
       <Route exact path="/">
@@ -56,6 +59,7 @@ function App() {
         <Project />
         <Update/>
       </Route>
+      </Router>
     </>
 
   );
