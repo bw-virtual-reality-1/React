@@ -19,9 +19,6 @@ import PrivateRoute from './utils/PrivateRoute'
 function App() {
   const [user, setUser] = useState({ loggedin: false });
 
-
-
-  
  
   return (
     <>

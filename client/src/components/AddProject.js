@@ -4,6 +4,7 @@ import {library} from '@fortawesome/fontawesome-svg-core'
 import {faTrash} from '@fortawesome/free-solid-svg-icons'
 import {Route, useHistory} from 'react-router-dom'
 import '../styles/add.css'
+import axiosWithAuth from '../utils/axiosWithAuth'
 
 
 library.add(faTrash)
@@ -16,7 +17,7 @@ const initFormValues = {
 
  export default function AddProject(){
     const [addProject, setProject] = useState(initFormValues)
-    const {push} = useHistory();
+    const {push} = useHistory(); 
 
     
     const onChange = e => {
@@ -29,8 +30,9 @@ const initFormValues = {
 
     const onSubmit= e =>{
         e.preventDefault();
-        axios 
-        .post(" https://virtual-reality-fundraiser.herokuapp.com/api/auth/fundraiser", addProject)
+        
+        axiosWithAuth() 
+        .post('/dashboard', addProject)
         .then(res => {
             console.log(res.data)
             setProject(res.data)

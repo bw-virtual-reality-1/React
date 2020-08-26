@@ -10,15 +10,18 @@ export default function Card({projects}){
     return (
             <div className="parent">
             <div className="card-wrapper">
-                <h3 id="name">{projects.firstName}{projects.lastName} </h3>
+                <h3 id="name">{projects.first_name}{projects.lastName} </h3>
                 <hr/>
                 <h4>{projects.title}</h4>
+                <p>{projects.email}</p>
               
                 <p id="description-p"> {projects.description}
                     </p>
 
                <Link to='/payment'> <button id="donate-btn">Donate</button> </Link>
             </div>
+
+            <button>Delete</button> <button>update</button>
             </div>
         
     )

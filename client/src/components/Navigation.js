@@ -26,6 +26,12 @@ const Navigation = (props) => {
         <Link to="/dashboard" className="nav-link">
           Dashboard
         </Link>
+        
+      )}
+      {user.loggedin &&(
+        <Link to ='/add-project' className="nav-link">
+        Add project
+        </Link>
       )}
     </Nav>
   );
