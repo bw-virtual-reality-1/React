@@ -50,6 +50,22 @@ const StyledForm = styled.div`
       color: white;
     }
   }
+  form {
+    animation-duration: 1.2s;
+    animation-name: slidetop;
+  }
+
+@keyframes slidetop {
+  from {
+    margin-top: 100%;
+ 
+  }
+
+  to {
+    margin-top: 0%;
+
+  }
+}
 `;
 
 const Nav = styled.nav`
@@ -71,6 +87,22 @@ const StyledHome = styled.section`
   display: flex;
   flex-flow: column wrap;
   width: 100%;
+  h1 {
+    animation-duration: 1.5s;
+    animation-name: slidein;
+  }
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%; 
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
 `;
 
 export { StyledForm, Nav, StyledHome };
