@@ -49,7 +49,14 @@ function Login(props) {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify(inputValue)
-        }).then(res => { return res.json() })
+        }).then(res => {
+          if (res.status != 401) {
+            return res.json()
+          } else {
+            //// figure out how to work around this nonsense
+          }
+
+        })
           .then(data => {
             console.log(data)
             setUser({ token: data.token, loggedin: true })
