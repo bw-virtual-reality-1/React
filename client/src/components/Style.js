@@ -51,7 +51,7 @@ const StyledForm = styled.div`
     }
   }
   form {
-    animation-duration: 1.2s;
+    animation-duration: 0.8s;
     animation-name: slidetop;
   }
 
