@@ -73,7 +73,7 @@ const Nav = styled.nav`
   flex-flow: row nowrap;
   height: 50px;
   width: 100%;
-  background-color: black;
+  background-color: #303030;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 0.6rem;
@@ -88,7 +88,7 @@ const StyledHome = styled.section`
   flex-flow: column wrap;
   width: 100%;
   h1 {
-    animation-duration: 1.5s;
+    animation-duration: 1s;
     animation-name: slidein;
   }
 

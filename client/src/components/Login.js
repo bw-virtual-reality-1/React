@@ -58,6 +58,7 @@ function Login(props) {
           } else {
             //// figure out how to work around this nonsense
             setUser({ token: '', loggedin: false })
+            setFormErrors({ statusErr: "Invalid Credentials" });
           }
 
         })
