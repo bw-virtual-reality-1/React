@@ -16,12 +16,15 @@ export default function Card({projects}){
                 <p>{projects.email}</p>
               
                 <p id="description-p"> {projects.description}
+                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum 
+                Lorem Ipsum Lorem Ipsum Lorem Ipsum 
+                Lorem Ipsum Lorem Ipsum Lorem Ipsum  
                     </p>
 
                <Link to='/payment'> <button id="donate-btn">Donate</button> </Link>
             </div>
 
-            <button>Delete</button> <button>update</button>
+          
             </div>
         
     )

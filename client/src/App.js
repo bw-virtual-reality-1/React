@@ -5,6 +5,7 @@ import Dashboard from "./components/ProjectDashboard";
 import AddProject from "./components/AddProject";
 import Payment from "./components/Payment";
 import ProjectCard from "./components/ProjectCard";
+import Project from './components/Project'
 
 import { Route} from "react-router-dom";
 
@@ -15,7 +16,7 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Home from "./components/Home";
 import PrivateRoute from './utils/PrivateRoute'
-
+import Update from './components/updateProject'
 function App() {
   const [user, setUser] = useState({ loggedin: false });
 
@@ -34,17 +35,26 @@ function App() {
       <Route exact path="/signup">
         <SignUp setUser={setUser} user={user} />
       </Route>
+
+
+
       <PrivateRoute exact path="/dashboard">
-        <Dashboard  />
+        <Dashboard  loggedIn={setUser}/>
+
       </PrivateRoute>
-      <Route exact path="/add-project">
+
+      <Route>
+
+      </Route>
+      <Route  path="/add-project">
         <AddProject />
       </Route>
       <Route exact path="/payment">
         <Payment />
       </Route>
       <Route exact path="/dashboard/:id">
-        <ProjectCard />
+        <Project />
+        <Update/>
       </Route>
     </>
 
