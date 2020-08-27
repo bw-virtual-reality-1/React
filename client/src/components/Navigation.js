@@ -11,28 +11,22 @@ const Navigation = (props) => {
       <Link to="/" className="nav-link">
         Home
       </Link>
-      {!user.loggedin && (
+    
         <Link to="/login" className="nav-link">
           Login
         </Link>
-      )}
-
-      {!user.loggedin && (
+     
         <Link to="/signup" className="nav-link">
           Sign Up
         </Link>
-      )}
-      {user.loggedin && (
+    
+     
         <Link to="/dashboard" className="nav-link">
           Dashboard
         </Link>
         
-      )}
-      {user.loggedin &&(
-        <Link to ='/add-project' className="nav-link">
-        Add project
-        </Link>
-      )}
+      
+ 
     </Nav>
   );
 };

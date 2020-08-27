@@ -16,7 +16,7 @@ function Update(props){
 
     useEffect(()=>{
         axios
-        .get(`https://reqres.in/api/users/${params.id}`)
+        .get(`https://virtual-reality-fundraiser.herokuapp.com/api/projects${params.id}`)
         .then(res =>{
             console.log(res)
             setupdate(res.data)
@@ -37,7 +37,7 @@ function Update(props){
     const onSubmit = e => {
         e.preventDefault()
         axios
-        .put(`https://reqres.in/api/users/${update.id}`, update)
+        .put(`https://reqres.in/api/users${update.id}`, update)
         .then(res =>{
             console.log(res)
             setupdate(res.data)
@@ -70,4 +70,4 @@ function Update(props){
     )
 }
 
-export default Update
+ export default Update;

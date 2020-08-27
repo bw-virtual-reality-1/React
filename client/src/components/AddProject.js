@@ -30,9 +30,8 @@ const initFormValues = {
 
     const onSubmit= e =>{
         e.preventDefault();
-        
-        axiosWithAuth() 
-        .post('https://reqres.in/api/users?page=2', addProject)
+        axios
+        .post(" https://reqres.in/api/users", addProject)
         .then(res => {
             console.log(res.data)
             setProject(res.data)

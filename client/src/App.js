@@ -1,57 +1,44 @@
-import React, { useState} from "react";
-import {BrowserRouter as Router} from 'react-router-dom'
-
-
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Login from './components/Login'
 import Dashboard from "./components/ProjectDashboard";
 import AddProject from "./components/AddProject";
 import Payment from "./components/Payment";
+import ProjectCard from "./components/ProjectCard";
+import Signup from './components/SignUp'
+import { Route, useHistory , BrowserRouter as Router} from "react-router-dom";
 import Project from './components/Project'
-
-import { Route} from "react-router-dom";
+import Update from './components/updateProject'
 
 import "./App.css";
 
 import Navbar from "./components/Navigation";
-import Login from "./components/Login";
-import SignUp from "./components/SignUp";
 import Home from "./components/Home";
 import PrivateRoute from './utils/PrivateRoute'
-import Update from './components/updateProject'
 
 
 function App() {
   const [user, setUser] = useState({ loggedin: false });
 
- 
+
+  //console.log(projects);
   return (
     <>
     <Router>
-      <Navbar user={user} />
+      <Navbar />
 
       <Route exact path="/">
         <Home />
       </Route>
 
       <Route exact path="/login">
-        <Login setUser={setUser} user={user} />
+        <Login/>
       </Route>
       <Route exact path="/signup">
-        <SignUp setUser={setUser} user={user} />
+    <Signup/>
       </Route>
-
-
-
-      <PrivateRoute exact path="/dashboard">
-        <Dashboard  loggedIn={setUser}/>
-
-      </PrivateRoute>
-
-      <Route>
-
-      </Route>
-      <Route  path="/add-project">
-        <AddProject />
-      </Route>
+      <PrivateRoute exact path="/dashboard" component={Dashboard}/>
+      <PrivateRoute exact path="/add-project" component={AddProject}/>
       <Route exact path="/payment">
         <Payment />
       </Route>

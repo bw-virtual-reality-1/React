@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import axios from 'axios';
 import { useParams, useHistory } from 'react-router-dom';
 import ProjectCard from './ProjectCard'
+import axiosWithAuth from '../utils/axiosWithAuth';
 
 function Project(){
     const [project, setProject] = useState(null);
@@ -9,7 +10,8 @@ function Project(){
     const {push} = useHistory()
 
     const getProject= (id) =>{
-        axios.get(`https://reqres.in/api/users/${id}`)
+        axiosWithAuth()
+        .get(`https://virtual-reality-fundraiser.herokuapp.com/api/projects$`)
         .then(res => setProject(res.data))
         .catch(err=> console.log(err))
     }
@@ -24,8 +26,8 @@ function Project(){
 
     const onDelete = e => {
         e.preventDefault()
-        axios
-        .delete(`https://reqres.in/api/users/${params.id}`)
+        axiosWithAuth()
+        .delete(`https://reqres.in/api/users`)
         .then(res =>{
             push('/dashboard')
             setProject(res.data)
