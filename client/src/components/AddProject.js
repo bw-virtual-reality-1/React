@@ -4,19 +4,20 @@ import {library} from '@fortawesome/fontawesome-svg-core'
 import {faTrash} from '@fortawesome/free-solid-svg-icons'
 import {Route, useHistory} from 'react-router-dom'
 import '../styles/add.css'
+import axiosWithAuth from '../utils/axiosWithAuth'
 
 
 library.add(faTrash)
 
 const initFormValues = {
-    title:'',
-    description:'',
+    name:'',
+    job:'',
     id: Date.now()
 }
 
  export default function AddProject(){
     const [addProject, setProject] = useState(initFormValues)
-    const {push} = useHistory();
+    const {push} = useHistory(); 
 
     
     const onChange = e => {
@@ -29,8 +30,9 @@ const initFormValues = {
 
     const onSubmit= e =>{
         e.preventDefault();
-        axios 
-        .post(" https://virtual-reality-fundraiser.herokuapp.com/api/auth/fundraiser", addProject)
+        
+        axiosWithAuth() 
+        .post('https://reqres.in/api/users?page=2', addProject)
         .then(res => {
             console.log(res.data)
             setProject(res.data)
@@ -51,16 +53,16 @@ const initFormValues = {
                 <br/>
             <input
             type="text"
-            name="title"
-            value={addProject.title}
+            name="name"
+            value={addProject.name}
             onChange={onChange}
             /> <br/>
             <label htmlFor="description"> Description</label><br/>
             <input
             type='text'
-            name="description"
+            name="job"
             id="description"
-            value={addProject.description}
+            value={addProject.job}
             onChange={onChange}
             /> <br/>
 

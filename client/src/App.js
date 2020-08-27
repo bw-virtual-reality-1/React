@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState} from "react";
+import {BrowserRouter as Router} from 'react-router-dom'
+
 
 import Dashboard from "./components/ProjectDashboard";
 import AddProject from "./components/AddProject";
 import Payment from "./components/Payment";
-import ProjectCard from "./components/ProjectCard";
+import Project from './components/Project'
 
-import { Route, useHistory } from "react-router-dom";
+import { Route} from "react-router-dom";
 
 import "./App.css";
 
@@ -15,28 +16,16 @@ import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Home from "./components/Home";
 import PrivateRoute from './utils/PrivateRoute'
+import Update from './components/updateProject'
+
 
 function App() {
-  const [projects, setProjectList] = useState([]);
-  const { location } = useHistory();
   const [user, setUser] = useState({ loggedin: false });
 
-  const getProjectList = () => {
-    axios
-      .get("https://reqres.in/api/users")
-      .then((res) => {
-        setProjectList(res.data.data);
-      })
-      .catch((err) => console.log(err));
-  };
-
-  useEffect(() => {
-    getProjectList();
-  }, [location]);
-
-  //console.log(projects);
+ 
   return (
     <>
+    <Router>
       <Navbar user={user} />
 
       <Route exact path="/">
@@ -49,18 +38,28 @@ function App() {
       <Route exact path="/signup">
         <SignUp setUser={setUser} user={user} />
       </Route>
-      <Route exact path="/dashboard">
-        <Dashboard projects={projects} />
+
+
+
+      <PrivateRoute exact path="/dashboard">
+        <Dashboard  loggedIn={setUser}/>
+
+      </PrivateRoute>
+
+      <Route>
+
       </Route>
-      <Route exact path="/add-project">
+      <Route  path="/add-project">
         <AddProject />
       </Route>
       <Route exact path="/payment">
         <Payment />
       </Route>
       <Route exact path="/dashboard/:id">
-        <ProjectCard />
+        <Project />
+        <Update/>
       </Route>
+      </Router>
     </>
 
   );

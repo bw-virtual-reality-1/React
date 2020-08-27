@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react'
-
+import axios from 'axios'
 import {useParams, useHistory} from 'react-router-dom'
 
 const initValues={
-    title:'',
-    description:''
+    first_name:'',
+    email:''
 }
 
 function Update(props){
@@ -16,7 +16,7 @@ function Update(props){
 
     useEffect(()=>{
         axios
-        .get('https://reqres.in/api/users/${params.id}')
+        .get(`https://reqres.in/api/users/${params.id}`)
         .then(res =>{
             console.log(res)
             setupdate(res.data)
@@ -37,7 +37,7 @@ function Update(props){
     const onSubmit = e => {
         e.preventDefault()
         axios
-        .put('https://reqres.in/api/users/${update.id}', update)
+        .put(`https://reqres.in/api/users/${update.id}`, update)
         .then(res =>{
             console.log(res)
             setupdate(res.data)
@@ -53,14 +53,14 @@ function Update(props){
                 <label htmlFor="title">Title</label>
                 <input
                 type="text"
-                name="title"
+                name="first_name"
                 value={update.title}
                 onChange={onChange}/> <br/>
 
                 <label htmlFor="description">Description</label>
                 <input 
                 type='text'
-                name="description"
+                name="email"
                 value={update.description}
                 onChange={onChange}/> <br/>
 
@@ -69,3 +69,5 @@ function Update(props){
         </div>
     )
 }
+
+export default Update
