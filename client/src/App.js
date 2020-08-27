@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import Login from './components/LogIn'
 import Dashboard from "./components/ProjectDashboard";
 import AddProject from "./components/AddProject";
 import Payment from "./components/Payment";
 import ProjectCard from "./components/ProjectCard";
-
+import Signup from './components/SignUp'
 import { Route, useHistory } from "react-router-dom";
+import Project from './components/Project'
+import Update from './components/updateProject'
 
 import "./App.css";
 
 import Navbar from "./components/Navigation";
-import Login from "./components/Login";
-import SignUp from "./components/SignUp";
 import Home from "./components/Home";
 import PrivateRoute from './utils/PrivateRoute'
 
@@ -21,18 +21,6 @@ function App() {
   const { location } = useHistory();
   const [user, setUser] = useState({ loggedin: false });
 
-  const getProjectList = () => {
-    axios
-      .get("https://reqres.in/api/users")
-      .then((res) => {
-        setProjectList(res.data.data);
-      })
-      .catch((err) => console.log(err));
-  };
-
-  useEffect(() => {
-    getProjectList();
-  }, [location]);
 
   //console.log(projects);
   return (
@@ -44,22 +32,19 @@ function App() {
       </Route>
 
       <Route exact path="/login">
-        <Login setUser={setUser} user={user} />
+        <Login/>
       </Route>
       <Route exact path="/signup">
-        <SignUp setUser={setUser} user={user} />
+    <Signup/>
       </Route>
-      <Route exact path="/dashboard">
-        <Dashboard projects={projects} />
-      </Route>
-      <Route exact path="/add-project">
-        <AddProject />
-      </Route>
+      <PrivateRoute exact path="/dashboard" component={Dashboard}/>
+      <PrivateRoute exact path="/add-project" component={AddProject}/>
       <Route exact path="/payment">
         <Payment />
       </Route>
       <Route exact path="/dashboard/:id">
-        <ProjectCard />
+        <Project />
+        <Update/>
       </Route>
     </>
 
