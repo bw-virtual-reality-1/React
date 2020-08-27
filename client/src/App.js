@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Login from './components/LogIn'
+import Login from './components/Login'
 import Dashboard from "./components/ProjectDashboard";
 import AddProject from "./components/AddProject";
 import Payment from "./components/Payment";
