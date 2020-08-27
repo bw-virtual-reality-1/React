@@ -6,7 +6,7 @@ import AddProject from "./components/AddProject";
 import Payment from "./components/Payment";
 import ProjectCard from "./components/ProjectCard";
 import Signup from './components/SignUp'
-import { Route, useHistory } from "react-router-dom";
+import { Route, useHistory , BrowserRouter as Router} from "react-router-dom";
 import Project from './components/Project'
 import Update from './components/updateProject'
 
@@ -16,16 +16,16 @@ import Navbar from "./components/Navigation";
 import Home from "./components/Home";
 import PrivateRoute from './utils/PrivateRoute'
 
+
 function App() {
-  const [projects, setProjectList] = useState([]);
-  const { location } = useHistory();
   const [user, setUser] = useState({ loggedin: false });
 
 
   //console.log(projects);
   return (
     <>
-      <Navbar user={user} />
+    <Router>
+      <Navbar />
 
       <Route exact path="/">
         <Home />
@@ -46,6 +46,7 @@ function App() {
         <Project />
         <Update/>
       </Route>
+      </Router>
     </>
 
   );

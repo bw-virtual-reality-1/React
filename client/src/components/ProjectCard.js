@@ -13,12 +13,15 @@ export default function Card({projects}){
             <div className="card-wrapper">
                 <h3>{projects.title} </h3>
                 <hr/>
+                <p>{projects.description} </p>
               
                 <p>{projects.description}
                     </p>
 
                 <button id="donate-btn"><Link to='/payment'>Donate</Link></button> 
             </div>
+
+          
             </div>
         
     )

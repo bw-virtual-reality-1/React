@@ -27,7 +27,7 @@ function Project(){
     const onDelete = e => {
         e.preventDefault()
         axiosWithAuth()
-        .delete(`https://virtual-reality-fundraiser.herokuapp.com/api/projects$`)
+        .delete(`https://reqres.in/api/users`)
         .then(res =>{
             push('/dashboard')
             setProject(res.data)

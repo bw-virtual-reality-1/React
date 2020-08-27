@@ -1,11 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
-
 import {useParams, useHistory} from 'react-router-dom'
 
 const initValues={
-    title:'',
-    description:''
+    first_name:'',
+    email:''
 }
 
 function Update(props){
@@ -54,14 +53,14 @@ function Update(props){
                 <label htmlFor="title">Title</label>
                 <input
                 type="text"
-                name="title"
+                name="first_name"
                 value={update.title}
                 onChange={onChange}/> <br/>
 
                 <label htmlFor="description">Description</label>
                 <input 
                 type='text'
-                name="description"
+                name="email"
                 value={update.description}
                 onChange={onChange}/> <br/>
 
