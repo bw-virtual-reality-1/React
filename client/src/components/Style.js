@@ -86,10 +86,20 @@ const Nav = styled.nav`
 const StyledHome = styled.section`
   display: flex;
   flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   h1 {
     animation-duration: 1s;
     animation-name: slidein;
+    margin-bottom: 1rem;
+  }
+
+  img {
+    width: 60%;
+    animation-duration: 1s;
+    animation-name: slideinimg;
+    text-align: center;
   }
 
 @keyframes slidein {
@@ -102,7 +112,25 @@ const StyledHome = styled.section`
     margin-left: 0%;
     width: 100%;
   }
+
+  
 }
+
+@keyframes slideinimg {
+  from {
+    margin-left: 100%;
+ 
+  }
+
+  to {
+    margin-left: 0%;
+
+  }
+
+  
+}
+
+
 `;
 
 export { StyledForm, Nav, StyledHome };
