@@ -16,7 +16,7 @@ function Home() {
   return (
     <StyledHome>
       <h1>VR funding platform</h1>
-      {nasa && <img src={nasa.url} alt="Nasa photo of the day" />}
+      {nasa && <img src={nasa.url} alt="Nasa" />}
 
     </StyledHome>
   );

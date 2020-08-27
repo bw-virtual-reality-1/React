@@ -53,7 +53,7 @@ function Login(props) {
           body: JSON.stringify(inputValue)
         }).then(res => {
           status = res.status
-          if (status != 401) {
+          if (status !== 401) {
             return res.json()
           } else {
             //// figure out how to work around this nonsense
@@ -63,7 +63,7 @@ function Login(props) {
 
         })
           .then(data => {
-            if (status != 401) {
+            if (status !== 401) {
               console.log(data)
               setUser({ token: data.token, loggedin: true })
               history.push('/dashboard')

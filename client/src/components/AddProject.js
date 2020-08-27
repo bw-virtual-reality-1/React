@@ -1,24 +1,24 @@
-import React , {useState} from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
-import {library} from '@fortawesome/fontawesome-svg-core'
-import {faTrash} from '@fortawesome/free-solid-svg-icons'
-import {Route, useHistory} from 'react-router-dom'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
+// import {Route, useHistory} from 'react-router-dom'
 import '../styles/add.css'
 
 
 library.add(faTrash)
 
 const initFormValues = {
-    title:'',
-    description:'',
+    title: '',
+    description: '',
     id: Date.now()
 }
 
- export default function AddProject(){
+export default function AddProject() {
     const [addProject, setProject] = useState(initFormValues)
-    const {push} = useHistory();
+    // const { push } = useHistory();
 
-    
+
     const onChange = e => {
         e.persist();
         setProject({
@@ -27,54 +27,50 @@ const initFormValues = {
         })
     }
 
-    const onSubmit= e =>{
+    const onSubmit = e => {
         e.preventDefault();
-        axios 
-        .post(" https://virtual-reality-fundraiser.herokuapp.com/api/auth/fundraiser", addProject)
-        .then(res => {
-            console.log(res.data)
-            setProject(res.data)
-            push('/dashboard')
-            
-        })
-        .catch(err => {
-            console.log( err)
-        })
+        axios
+            .post(" https://virtual-reality-fundraiser.herokuapp.com/api/auth/fundraiser", addProject)
+            .then(res => {
+                console.log(res.data)
+                setProject(res.data)
+                // push('/dashboard')
+
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }
 
-    return(
+    return (
         <div id="parent">
-        <div className="add-wrap">
-            <h2>Add <br/>A Project</h2>
-            <form onSubmit={onSubmit}>
-            <label htmlFor="title">Project Title</label>
-                <br/>
-            <input
-            type="text"
-            name="title"
-            value={addProject.title}
-            onChange={onChange}
-            /> <br/>
-            <label htmlFor="description"> Description</label><br/>
-            <input
-            type='text'
-            name="description"
-            id="description"
-            value={addProject.description}
-            onChange={onChange}
-            /> <br/>
+            <div className="add-wrap">
+                <h2>Add <br />A Project</h2>
+                <form onSubmit={onSubmit}>
+                    <label htmlFor="title">Project Title</label>
+                    <br />
+                    <input
+                        type="text"
+                        name="title"
+                        value={addProject.title}
+                        onChange={onChange}
+                    /> <br />
+                    <label htmlFor="description"> Description</label><br />
+                    <input
+                        type='text'
+                        name="description"
+                        id="description"
+                        value={addProject.description}
+                        onChange={onChange}
+                    /> <br />
 
-            <button id="submit" type="submit">Add</button>
+                    <button id="submit" type="submit">Add</button>
 
-            </form>
+                </form>
 
-        </div>
-      
+            </div>
+
         </div>
     )
-    
+
 }
-
-
-
-

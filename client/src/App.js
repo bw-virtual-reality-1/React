@@ -14,7 +14,7 @@ import Navbar from "./components/Navigation";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Home from "./components/Home";
-import PrivateRoute from './utils/PrivateRoute'
+//import PrivateRoute from './utils/PrivateRoute'
 
 function App() {
   const [projects, setProjectList] = useState([]);
