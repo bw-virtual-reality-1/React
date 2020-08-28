@@ -23,8 +23,8 @@ login = (e) => {
             .then((res) => {
                  console.log(res.data)      
                 window.localStorage.setItem('token', res.data.token);
-              
-            // window.location.assign('/dashboard')
+
+               window.location.assign('/dashboard')
             })
             .catch((err) => {
                 console.log(err);
