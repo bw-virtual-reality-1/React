@@ -21,9 +21,6 @@ const Navigation = (props) => {
         </Link>
     
      
-        <Link to="/dashboard" className="nav-link">
-          Dashboard
-        </Link>
         
       
  
